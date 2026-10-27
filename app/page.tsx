@@ -54,9 +54,8 @@ export default function Home() {
     } else {
       const handleLoad = () => {
         setLoading(false);
-        document.addEventListener("load", handleLoad);
       };
-
+      document.addEventListener("load", handleLoad);
       return () => {
         document.removeEventListener("load", handleLoad);
       };
