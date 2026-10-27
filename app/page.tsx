@@ -46,6 +46,22 @@ export default function Home() {
   const images = [bnxn1, bnxn2, bnxn3, bnxn4, bnxn5, bnxn6];
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (document.readyState == "complete") {
+      setLoading(false);
+    } else {
+      const handleLoad = () => {
+        setLoading(false);
+        document.addEventListener("load", handleLoad);
+      };
+
+      return () => {
+        document.removeEventListener("load", handleLoad);
+      };
+    }
+  }, []);
 
   const menuLinks = [
     { label: "Home", href: "#home" },
@@ -154,6 +170,23 @@ export default function Home() {
 
   return (
     <>
+      {loading && (
+        <section className="w-screen min-h-screen flex items-center justify-center overflow-hidden bg-background">
+          <div className="w-full h-full flex flex-col items-center justify-center gap-4 ">
+            <Image
+              src={header}
+              alt="bnxn header"
+              className="inline-block h-10 w-10 rounded-lg object-cover sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-15 lg:w-15"
+            />
+
+            <div className="w-13 h-13 border-4 border-b-background border-primary animate-spin rounded-full"></div>
+
+            <p className="text-sm font-light text-foreground">
+              Wait a minute... The captain will be with you shortly.
+            </p>
+          </div>
+        </section>
+      )}
       <section className="w-screen min-h-screen overflow-x-hidden bg-background">
         <div className="cont relative overflow-hidden">
           <nav className="mt-3 flex h-17 w-full items-center justify-between px-5">
