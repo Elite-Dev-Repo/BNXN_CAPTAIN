@@ -32,6 +32,16 @@ import VisualArchive from "./components/Archive";
 import JustReleasedAlbum from "./components/JustReleased";
 import FAQS from "./components/FAQs";
 
+type Album = {
+  name: string;
+  shareUrl: string;
+  cover: {
+    url: string;
+    width?: number;
+    height?: number;
+  }[];
+};
+
 export default function Home() {
   const images = [bnxn1, bnxn2, bnxn3, bnxn4, bnxn5, bnxn6];
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -46,9 +56,10 @@ export default function Home() {
     { label: "Still In Charge", href: "#still-in-charge" },
     { label: "FAQs", href: "#faqs" },
   ];
-  const [albums, setAlbums] = useState([]);
+  const [albums, setAlbums] = useState<Album[]>([]);
 
   const [isPlaying, setisPlaying] = useState(false);
+
   const careerHighlights = [
     {
       value: "2.24bn",
@@ -82,7 +93,7 @@ export default function Home() {
     },
   ];
 
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<Album | null>(null);
 
   const loadAlbums = async () => {
     const res = await getAlbums();
