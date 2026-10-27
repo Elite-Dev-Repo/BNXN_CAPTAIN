@@ -12,7 +12,7 @@ const orbitron = Orbitron({
 export const metadata: Metadata = {
   title: "BNXN - Captain",
   description:
-    "The official home of BNXN (fka Buju), the Afro-fusion singer and songwriter from Lagos. Explore his discography, milestones, visual archive, and latest releases.",
+    "The un-official home of BNXN (fka Buju), the Afro-fusion singer and songwriter from Lagos. Explore his discography, milestones, visual archive, and latest releases.",
   icons: {
     icon: "/favicon.ico",
   },
