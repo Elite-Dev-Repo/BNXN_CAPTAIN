@@ -33,7 +33,7 @@ const socialIcons = [
   },
   {
     icon: tiktok,
-    href: "https://www.tiktok.com/@bnxn",
+    href: "https://www.tiktok.com/@bnxn_tye",
     label: "TikTok",
   },
   {
