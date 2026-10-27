@@ -28,7 +28,6 @@ import {
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import LivePerformancesSection from "./components/LivePerformancesSection";
 import VisualArchive from "./components/Archive";
 import JustReleasedAlbum from "./components/JustReleased";
 import FAQS from "./components/FAQs";
