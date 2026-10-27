@@ -49,17 +49,21 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (document.readyState == "complete") {
-      setLoading(false);
-    } else {
-      const handleLoad = () => {
-        setLoading(false);
-      };
-      document.addEventListener("load", handleLoad);
-      return () => {
-        document.removeEventListener("load", handleLoad);
-      };
+    if (document.readyState === "complete") {
+      const frame = window.requestAnimationFrame(() => setLoading(false));
+      return () => window.cancelAnimationFrame(frame);
     }
+
+    const handleLoad = () => setLoading(false);
+
+    window.addEventListener("load", handleLoad);
+
+    const fallback = window.setTimeout(() => setLoading(false), 4000);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   const menuLinks = [
