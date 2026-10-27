@@ -112,7 +112,13 @@ export default function Home() {
 
   const loadAlbums = async () => {
     const res = await getAlbums();
-    setAlbums(res);
+    if (res && !Array.isArray(res) && "error" in res) {
+      console.log("Failed to load albums:", res.error);
+      return;
+    }
+    if (Array.isArray(res)) {
+      setAlbums(res);
+    }
   };
 
   useEffect(() => {
