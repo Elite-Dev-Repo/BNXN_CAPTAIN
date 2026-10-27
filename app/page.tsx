@@ -224,6 +224,7 @@ export default function Home() {
                 <span className="inline-block align-middle">
                   <Image
                     src={header}
+                    priority
                     alt="bnxn header"
                     className="inline-block h-10 w-10 rounded-lg object-cover sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-15 lg:w-15"
                   />
@@ -261,6 +262,7 @@ export default function Home() {
                         >
                           <Image
                             src={image}
+                            priority
                             alt={`BNXN portrait ${i + 1}`}
                             className="h-full w-40 skew-3 rounded-xl object-cover sm:w-48 md:w-56 lg:w-65"
                             sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, (max-width: 1024px) 224px, 260px"
