@@ -14,12 +14,12 @@
   --font-sans: var(--font-orbitron);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #141514;
     --foreground: #f0ece6;
   }
-}
+} */
 
 body {
   background: var(--background);
